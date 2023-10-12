@@ -19,7 +19,7 @@ std::vector<std::vector<int>> findSum(const std::vector<int>& alpha, size_t k)
 		dp[0][i] = dp[0][i - 1] + alpha[i];
 	}
 
-	for (int i = 1; i < k; i++) // zapochvame ot red 2
+	for (int i = 1; i < k; i++) // start from row 2
 	{
 		for (int j = i; j < n; j++) 
 		{
