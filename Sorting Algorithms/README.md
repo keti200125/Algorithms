@@ -1,6 +1,6 @@
 # Sorting Algorithms
 * Bubble Sort
 * Insertion Sort
-* Selections Sort
+* Selection Sort
 * Merge Sort
 * Quick Sort
