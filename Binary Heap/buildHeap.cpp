@@ -19,15 +19,15 @@ void naiveBuildHeap(std::vector<int> &arr)
     }
 }
 
-void heapifyIt(std::vector<int> &A, int index)
+void heapifyIt(std::vector<int> &A, int index, int n)
 {
-    int n = A.size();
-    int largest = index;
-    while (isInternalVertex(A,index)) // while is not leaf
+    // int n = A.size();
+    while (isInternalVertex(A, index)) // while is not leaf
     {
+        int largest = index;
         int left = leftKid(index);
         int right = rightKid(index);
-        if (A[left] > A[index])
+        if (left < n && A[left] > A[index])
             largest = left;
 
         if (right < n && A[right] > A[largest])
@@ -47,7 +47,7 @@ void heapifyIt(std::vector<int> &A, int index)
 
 void heapifyRec(std::vector<int> &A, int index)
 {
-    if (isInternalVertex(A,index))
+    if (isInternalVertex(A, index))
     {
         int left = leftKid(index);
         int right = rightKid(index);
@@ -72,7 +72,17 @@ void buildHeap(std::vector<int> &A)
 {
     for (int i = ((A.size() - 1) / 2); i > -1; i--)
     {
-        heapifyIt(A, i);
+        heapifyIt(A, i, A.size());
+    }
+}
+
+void heapsort(std::vector<int> &A)
+{
+    buildHeap(A);
+    for (int i = (A.size() - 1); i > 0; i--)
+    {
+        std::swap(A[0], A[i]);
+        heapifyIt(A, 0, i);
     }
 }
 
@@ -86,8 +96,9 @@ int main()
     A.push_back(1);
     A.push_back(9);
 
-    //naiveBuildHeap(A);
-    buildHeap(A);
+    // naiveBuildHeap(A);
+    // buildHeap(A);
+    heapsort(A);
 
     for (int i = 0; i < A.size(); i++)
     {
