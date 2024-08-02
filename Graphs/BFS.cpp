@@ -65,7 +65,7 @@ void BFSColourHelper(const Graph &g, int startVertex std::vector<char> &colour, 
     }
 }
 
-void BFSColour(Graph &g)
+void BFSColour(const Graph &g)
 {
     std::vector<char> colour(g.size(), 'w'); // w = white, g = grey, b = black
     std::vector<int> parent(g.size(), -1);
@@ -80,6 +80,3 @@ void BFSColour(Graph &g)
     }
 }
 
-int main()
-{
-}

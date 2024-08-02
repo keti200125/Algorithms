@@ -5,7 +5,7 @@ void DFSHelper(const Graph &g, std::vector<int> &isVisited, int x)
     isVisited[x] = true;
     std::cout << x << " ";
 
-    for (int y : adj[x])
+    for (int y : g.adj[x])
     {
         if (!isVisited[y])
         {
@@ -30,7 +30,7 @@ void DFS(const Graph &g)
 void DFSColourHelper(const Graph &g, std::vector<char> &colour, std::vector<int> &parent, int x)
 {
     colour[x] = 'g';
-    for (int y : adj[x])
+    for (int y : g.adj[x])
     {
         if (colour[y] == 'w')
         {
